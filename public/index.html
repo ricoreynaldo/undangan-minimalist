@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>The Wedding</title>
+  <meta name="theme-color" content="#faf9f6" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Geist:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23252321'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='34' text-anchor='middle' fill='%23c9b79c'%3E%26amp;%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- aktifkan mode animasi sebelum render pertama (elemen [data-reveal] disembunyikan dulu) -->
+  <script>
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');
+    // pengaman: bila GSAP/motion.js gagal dimuat, tampilkan semua konten tanpa animasi
+    addEventListener('load', function () { if (!window.__motion) document.documentElement.classList.remove('motion'); });
+  </script>
+</head>
+<body class="locked">
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <span class="loader-mono" data-mono></span>
+    <span class="loader-count" id="loaderCount">0</span>
+    <span class="loader-bar"><i id="loaderBar"></i></span>
+  </div>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+  <!-- ============ SAMPUL ============ -->
+  <section id="cover" class="cover">
+    <div class="cover-top">
+      <p class="label" data-cover-item>The wedding of</p>
+      <p class="label" data-cover-item data-text="dateShort"></p>
+    </div>
+    <h1 class="cover-title" data-cover-title>
+      <span class="ct-name" data-short="0"></span>
+      <span class="ct-mid">
+        <span class="ct-amp">&amp;</span>
+        <span class="ct-photo"><img data-photo="cover.photo" alt="" /></span>
+      </span>
+      <span class="ct-name" data-short="1"></span>
+    </h1>
+    <div class="cover-bottom">
+      <div data-cover-item>
+        <p class="label">Kepada Yth.</p>
+        <p class="guest-name" id="guestName"></p>
+      </div>
+      <button class="btn btn-ink" id="openBtn" type="button" data-cover-item data-magnetic>
+        <span class="btn-roll"><span>Buka Undangan</span><span aria-hidden="true">Buka Undangan</span></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- indeks bagian (pojok kiri bawah) -->
+  <p class="index" id="index" aria-hidden="true"><span id="indexText">00 — Pembuka</span></p>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" data-index="00 — Pembuka">
+      <div class="hero-media"><img data-photo="hero.photo" alt="Foto pasangan" data-hero-img /></div>
+      <div class="hero-text">
+        <p class="label light" data-text="hero.kicker" data-hero-item></p>
+        <h2 class="hero-title" data-names data-hero-title></h2>
+        <div class="hero-meta" data-hero-item>
+          <span data-text="dateLong"></span>
+          <span class="scroll-hint">Gulir <i></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AYAT (kata menyala saat digulir) ============ -->
+    <section class="sec quote-sec" data-index="00 — Pembuka">
+      <div class="wrap narrow">
+        <p class="quote" id="quote" data-text="quote.text"></p>
+        <p class="label quote-src" data-text="quote.source" data-reveal></p>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+    <!-- ============ MEMPELAI ============ -->
+    <section class="sec" id="couple" data-index="01 — Mempelai">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-num" data-reveal>01</span>
+          <h2 class="sec-title" data-split>Mempelai</h2>
+        </header>
+        <div class="couple">
+          <article class="person">
+            <div class="person-photo" data-clip><img data-photo="couple.groom.photo" alt="Mempelai pria" data-parallax /></div>
+            <div class="person-meta">
+              <p class="label" data-reveal>Mempelai pria</p>
+              <h3 class="person-name" data-split><span data-text="couple.groom.name"></span></h3>
+              <p class="person-title" data-text="couple.groom.title" data-reveal></p>
+              <p class="person-parents" data-text="couple.groom.parents" data-reveal></p>
+              <a class="ig" data-ig="groom" target="_blank" rel="noopener" data-reveal hidden></a>
+            </div>
+          </article>
+          <article class="person shift">
+            <div class="person-photo" data-clip><img data-photo="couple.bride.photo" alt="Mempelai wanita" data-parallax /></div>
+            <div class="person-meta">
+              <p class="label" data-reveal>Mempelai wanita</p>
+              <h3 class="person-name" data-split><span data-text="couple.bride.name"></span></h3>
+              <p class="person-title" data-text="couple.bride.title" data-reveal></p>
+              <p class="person-parents" data-text="couple.bride.parents" data-reveal></p>
+              <a class="ig" data-ig="bride" target="_blank" rel="noopener" data-reveal hidden></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COUNTDOWN ============ -->
+    <section class="sec countdown-sec" data-index="02 — Hitung mundur">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-num" data-reveal>02</span>
+          <h2 class="sec-title" data-split>Menuju hari bahagia</h2>
+        </header>
+        <div class="countdown" id="countdown">
+          <div data-reveal><b data-cd="d">00</b><span>Hari</span></div>
+          <div data-reveal><b data-cd="h">00</b><span>Jam</span></div>
+          <div data-reveal><b data-cd="m">00</b><span>Menit</span></div>
+          <div data-reveal><b data-cd="s">00</b><span>Detik</span></div>
+        </div>
+        <div class="cd-foot" data-reveal>
+          <p class="label" data-text="dateLong"></p>
+          <a class="text-link" id="calLink" target="_blank" rel="noopener">Simpan ke kalender <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CERITA (horizontal di desktop) ============ -->
+    <section class="story-sec" id="story-sec" data-index="03 — Cerita">
+      <div class="story-pin">
+        <div class="wrap story-head">
+          <header class="sec-head">
+            <span class="sec-num" data-reveal>03</span>
+            <h2 class="sec-title" data-split>Cerita kami</h2>
+          </header>
+          <div class="story-progress" aria-hidden="true"><i id="storyBar"></i></div>
+        </div>
+        <ol class="story-track" id="story"></ol>
+      </div>
+    </section>
+
+    <!-- ============ ACARA ============ -->
+    <section class="sec" id="events" data-index="04 — Acara">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-num" data-reveal>04</span>
+          <h2 class="sec-title" data-split>Rangkaian acara</h2>
+        </header>
+        <div class="events" id="eventList"></div>
+        <p class="dress" data-reveal><span class="label">Dress code</span><span data-text="dressCode"></span></p>
+      </div>
+    </section>
+
+    <!-- ============ GALERI ============ -->
+    <section class="sec" id="gallery-sec" data-index="05 — Galeri">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-num" data-reveal>05</span>
+          <h2 class="sec-title" data-split>Galeri</h2>
+          <p class="label sec-aside" id="frameCount" data-reveal></p>
+        </header>
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </section>
+
+    <!-- ============ RSVP + BUKU TAMU ============ -->
+    <section class="sec" id="rsvp" data-index="06 — RSVP">
+      <div class="wrap rsvp-grid">
+        <div>
+          <header class="sec-head">
+            <span class="sec-num" data-reveal>06</span>
+            <h2 class="sec-title" data-split>RSVP</h2>
+          </header>
+          <p class="lead" data-reveal>Mohon konfirmasi kehadiran Anda dan tinggalkan doa terbaik untuk kami.</p>
+
+          <form class="rsvp" id="rsvpForm" novalidate data-reveal>
+            <label class="field">
+              <input name="name" id="rsvpName" maxlength="60" autocomplete="name" placeholder=" " required />
+              <span>Nama</span>
+            </label>
+            <div class="choice" role="radiogroup" aria-label="Konfirmasi kehadiran">
+              <label><input type="radio" name="attendance" value="hadir" /><em>Hadir</em></label>
+              <label><input type="radio" name="attendance" value="tidak" /><em>Tidak hadir</em></label>
+              <i class="choice-ind" aria-hidden="true"></i>
+            </div>
+            <label class="field" id="guestsField">
+              <select name="guests">
+                <option value="1">1 orang</option>
+                <option value="2">2 orang</option>
+                <option value="3">3 orang</option>
+                <option value="4">4 orang</option>
+              </select>
+              <span>Jumlah tamu</span>
+            </label>
+            <label class="field">
+              <textarea name="message" rows="3" maxlength="500" placeholder=" "></textarea>
+              <span>Ucapan & doa</span>
+            </label>
+            <p class="form-msg" id="rsvpMsg" role="status"></p>
+            <button class="btn btn-ink" type="submit" data-magnetic>
+              <span class="btn-roll"><span>Kirim</span><span aria-hidden="true">Kirim</span></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="guestbook" data-reveal>
+          <div class="gb-head">
+            <p class="label">Buku tamu</p>
+            <p class="gb-stats" id="gbStats"></p>
+          </div>
+          <ul class="wishes" id="wishes"></ul>
+          <button class="text-link" id="moreWishes" type="button" hidden>Lihat lebih banyak</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HADIAH ============ -->
+    <section class="sec" id="gift" data-index="07 — Hadiah">
+      <div class="wrap">
+        <header class="sec-head">
+          <span class="sec-num" data-reveal>07</span>
+          <h2 class="sec-title" data-split>Tanda kasih</h2>
+        </header>
+        <p class="lead" data-reveal>Doa restu Anda adalah hadiah terindah. Namun bila ingin berbagi tanda kasih, kami menerimanya dengan penuh syukur.</p>
+        <div class="gifts" id="gifts"></div>
+      </div>
+    </section>
+
+    <!-- ============ PENUTUP ============ -->
+    <footer class="closing" data-index="08 — Penutup">
+      <div class="closing-media"><img data-photo="closing.photo" alt="" data-closing-img /></div>
+      <div class="closing-text">
+        <h2 class="closing-title" data-closing-title data-text="closing.title"></h2>
+        <p class="closing-sub" data-text="closing.text" data-reveal></p>
+        <p class="closing-names" data-names data-reveal></p>
+      </div>
+      <div class="foot wrap">
+        <p class="label">Made with pride · HEAVEN · <a href="kredit.html">Kredit aset</a></p>
+        <a class="wa-tag" id="waTag" target="_blank" rel="noopener" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24s8.24 3.7 8.24 8.24-3.7 8.24-8.24 8.24Zm4.52-6.17c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.99-1.23-.73-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></svg>
+          <span></span>
+        </a>
+        <a class="text-link" href="#top" id="toTop">Kembali ke atas <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Music toggle -->
+  <button class="music" id="musicBtn" type="button" aria-label="Putar / jeda musik" hidden>
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </button>
+  <audio id="bgm" loop preload="none"></audio>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" type="button" aria-label="Tutup">Tutup</button>
+    <button class="lb-nav prev" type="button" aria-label="Sebelumnya">←</button>
+    <img alt="" />
+    <button class="lb-nav next" type="button" aria-label="Berikutnya">→</button>
+    <p class="lb-count label" id="lbCount"></p>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/SplitText.min.js"></script>
+  <script src="js/vendor/Flip.min.js"></script>
+  <script src="js/motion.js"></script>
+  <script type="module" src="js/db.js"></script>
+</body>
+</html>
