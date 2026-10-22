@@ -12,14 +12,14 @@ window.INVITATION = {
       title: 'S.Ars.',
       parents: 'Putra pertama dari Bapak Haryanto & Ibu Ratna Dewi',
       instagram: 'dimasarya', // tanpa @ — kosongkan untuk menyembunyikan
-      photo: 'images/groom.jpg',
+      photo: 'img-undangan/61d0d79a7753b69f3e143795836a8153.jpg',
     },
     bride: {
       name: 'Alya Kirana Putri',
       title: 'S.Ds.',
       parents: 'Putri kedua dari Bapak Wibowo Santoso & Ibu Melati Sari',
       instagram: 'alyakirana',
-      photo: 'images/bride.jpg',
+      photo: 'img-undangan/a843abd1f4f511a3b717402a0b48a006.jpg',
     },
   },
 
@@ -29,12 +29,12 @@ window.INVITATION = {
   dateLong: 'Sabtu, 13 Februari 2027',
 
   cover: {
-    photo: 'images/cover.jpg',
+    photo: 'img-undangan/d0defbbc7f6b72c5f8f8f7620ad5691a.jpg',
     defaultGuest: 'Tamu Undangan', // dipakai bila tidak ada ?to=Nama di URL
   },
 
   hero: {
-    photo: 'images/hero.jpg',
+    photo: 'img-undangan/45c3f0078259ab963014c4d835a8c48e.jpg',
     kicker: 'Kami menikah',
   },
 
@@ -52,25 +52,25 @@ window.INVITATION = {
       year: '2019',
       title: 'Pertama bertemu',
       text: 'Sebuah studio desain kecil di Kemang mempertemukan kami — ia arsitek yang selalu terlambat rapat, saya desainer yang selalu menunggu.',
-      photo: 'images/gallery-hands.jpg',
+      photo: 'img-undangan/a751177140d9a863db5f558a5c12d23a.jpg',
     },
     {
       year: '2021',
       title: 'Jarak & jeda',
       text: 'Dua tahun berbeda kota. Kami belajar bahwa sederhana itu cukup: satu panggilan setiap malam, dan janji untuk pulang.',
-      photo: 'images/gallery-forest.jpg',
+      photo: 'img-undangan/d0defbbc7f6b72c5f8f8f7620ad5691a.jpg',
     },
     {
       year: '2025',
       title: 'Lamaran',
       text: 'Di meja makan keluarga, tanpa banyak kata. Sebuah cincin, dua keluarga, dan satu jawaban: iya.',
-      photo: 'images/gallery-rings.jpg',
+      photo: 'img-undangan/0a400eaa1f10a7e4a12e079a7f321df1.jpg',
     },
     {
       year: '2027',
       title: 'Hari ini',
       text: 'Babak baru dimulai. Terima kasih telah menjadi bagian dari perjalanan kami sampai di titik ini.',
-      photo: 'images/gallery-aisle.jpg',
+      photo: 'img-undangan/0a2085c735ff185d105bef9eb93f3b47.jpg',
     },
   ],
 
@@ -100,13 +100,13 @@ window.INVITATION = {
   dressCode: 'Busana formal bernuansa netral — putih gading, krem, atau abu muda.',
 
   gallery: [
-    'images/gallery-smile.jpg',
-    'images/gallery-veil.jpg',
-    'images/gallery-hands.jpg',
-    'images/gallery-shoes.jpg',
-    'images/gallery-aisle.jpg',
-    'images/gallery-forest.jpg',
-    'images/gallery-rings.jpg',
+    'img-undangan/45c3f0078259ab963014c4d835a8c48e.jpg',
+    'img-undangan/6fe3e4aa5d48be2166de719e3831f568.jpg',
+    'img-undangan/a751177140d9a863db5f558a5c12d23a.jpg',
+    'img-undangan/af8229644236640067d2be790fe9a79a.jpg',
+    'img-undangan/0a2085c735ff185d105bef9eb93f3b47.jpg',
+    'img-undangan/d0defbbc7f6b72c5f8f8f7620ad5691a.jpg',
+    'img-undangan/0a400eaa1f10a7e4a12e079a7f321df1.jpg',
   ],
 
   gift: {
@@ -124,7 +124,7 @@ window.INVITATION = {
   },
 
   closing: {
-    photo: 'images/closing.jpg',
+    photo: 'img-undangan/a751177140d9a863db5f558a5c12d23a.jpg',
     title: 'Terima kasih',
     text: 'Kehadiran dan doa restu Anda adalah hadiah terindah bagi kami.',
   },
